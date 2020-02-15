@@ -1,0 +1,81 @@
+﻿<Page x:Class="MarathonApp.Pages.PageSponsorship"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonApp.Pages"
+      xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="- Sponsor a runner" Tag="Unauth">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="400*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="28,0" Grid.ColumnSpan="2">
+            <TextBlock HorizontalAlignment="Center"  Foreground="#FFB4B4B4" Style="{StaticResource FontHeader}" Text="Спонсор бегуна"/>
+            <TextBlock Style="{StaticResource FontBase}" Foreground="#FF505050" TextWrapping="Wrap" TextAlignment="Center" Text="Пожалуйста выберите бегуна, которого вы отели бы спонсировать и сумму, которую вы хотели бы спонсировать. Спасибо за вашу поддержку бегунов и их благотворительных учреждений.​"/>
+        </StackPanel>
+        <Grid Grid.Column="0" Grid.Row="1">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Информация о спонсоре" HorizontalAlignment="Center" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Width="125" VerticalAlignment="Center" Text="Ваше имя:" Style="{StaticResource FontBase}" Foreground="#FF505050" TextAlignment="Right"/>
+                    <TextBox Name="TBFirstName" Style="{StaticResource BoxBase}" Foreground="#FF505050"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="125" VerticalAlignment="Center" Text="Бегун:" Style="{StaticResource FontBase}" Foreground="#FF505050" TextAlignment="Right"/>
+                    <ComboBox  Margin="5" Width="150" Height="20" Name="CBoxRunner" DisplayMemberPath="FullRunnerName" SelectionChanged="CBoxRunner_SelectionChanged"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Width="125" VerticalAlignment="Center" Text="Карта:" Style="{StaticResource FontBase}" Foreground="#FF505050" TextAlignment="Right"/>
+                    <TextBox Name="TBCard" Style="{StaticResource BoxBase}" Foreground="#FF505050"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Width="125" VerticalAlignment="Center" Text="Номер карты#:" Style="{StaticResource FontBase}" Foreground="#FF505050" TextAlignment="Right"/>
+                    <TextBox TextChanged="TBNumberCard_TextChanged" Name="TBNumberCard" Style="{StaticResource BoxBase}" Foreground="#FF505050" MaxLength="16"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="125" VerticalAlignment="Center" Text="Срок действия:" Style="{StaticResource FontBase}" Foreground="#FF505050" TextAlignment="Right"/>
+                    <TextBox Name="TBMonth" MaxLength="2" Style="{StaticResource BoxBase}" Width="20" Foreground="#FF505050"></TextBox>
+                    <TextBox Name="TBYear" MaxLength="4" Style="{StaticResource BoxBase}" Width="40" Foreground="#FF505050"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Width="125" VerticalAlignment="Center" Text="CVC" Style="{StaticResource FontBase}" Foreground="#FF505050" TextAlignment="Right"/>
+                    <TextBox Name="TBCVC" Style="{StaticResource BoxBase}" Width="30" Foreground="#FF505050" MaxLength="3"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Благотворительность" HorizontalAlignment="Center" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        
+                    <TextBlock  TextWrapping="Wrap" Width="125"  FontSize="14" TextAlignment="Center" Name="TBCharity"></TextBlock>
+                    <TextBlock Text="i"  Foreground="Red" Width="15" Height="20" FontSize="14" TextAlignment="Center" MouseDown="TextBlock_MouseDown"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Text="Cумма пожертвования" HorizontalAlignment="Center" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="50" Margin="0 5 0 5" FontSize="50" Name="TBlockAmount" HorizontalAlignment="Center" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                    <TextBlock Text="$" Margin="0 5 0 5" FontSize="50" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="-" Width="25"  Name="BtnMin" Click="BtnMin_Click"></Button>
+                    <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="120" Height="30" Name="TBoxAmount" TextChanged="TBoxAmount_TextChanged" MaxLength="5"  Text="50"/>
+                    <Button Content="+" Width="25"  Name="BtnPlus" Click="BtnPlus_Click"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="75"  Content="Заплатить" FontSize="14" Name="ButAdd" Click="ButAdd_Click"></Button>
+                    <Button Width="75" Content="Отмена" FontSize="14" Name="ButCancel" Click="ButCancel_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

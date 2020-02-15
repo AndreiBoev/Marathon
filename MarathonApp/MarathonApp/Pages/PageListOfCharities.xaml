@@ -1,0 +1,43 @@
+﻿<Page x:Class="MarathonApp.Pages.PageListOfCharities"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarathonApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="List of charities" Tag="Unauth">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Список благотворительных организаций" Style="{StaticResource FontHeader}" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Text="Это - список всех благотворительных учреждений, которые поддерживаются в Marathon Skills 2016. Спасибо за помощь вы поддерживаете их, спонсируя бегунов!" TextWrapping="Wrap" TextAlignment="Center" Style="{StaticResource FontBase}" FontSize="18" HorizontalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <ListView Name="LViewCharity" Margin="5" Focusable="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Margin="5" Source="{Binding SourcePath}" Grid.RowSpan="02"></Image>
+                            <TextBlock Text="{Binding CharityName}" Style="{StaticResource FontHeader}" Grid.Column="1"></TextBlock>
+                            <TextBlock Text="{Binding CharityDescription}" Style="{StaticResource FontBase}" Grid.Column="1" Grid.Row="2"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        </Grid>
+</Page>

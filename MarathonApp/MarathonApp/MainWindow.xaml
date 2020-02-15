@@ -1,0 +1,34 @@
+﻿<Window x:Class="MarathonApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MarathonApp"
+        mc:Ignorable="d"
+        Title="{Binding ElementName=MainFrame, Path=Content.Title, StringFormat={} MARATHON SKILLS 2020 {0}}" Height="500" Width="900">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="300*"></RowDefinition>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Name="GridLittle" Background="{StaticResource MainGreen}" Height="50">
+            <Button Name="BtnLogout" Content="Logout"  Width="120" HorizontalAlignment="Right" ></Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="BtnBack" Content="Назад" Width="120" HorizontalAlignment="Left" Click="BtnBack_Click"></Button>
+                <TextBlock Text="MARATHON SKILLS 2020" HorizontalAlignment="Center" FontSize="28" FontFamily="Open Sans Semibold" Foreground="White" Margin="5" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="0" Name="GridLarge" Height="150" Background="{StaticResource MainGreen}">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="MARATHON SKILLS 2020" HorizontalAlignment="Center" FontSize="28" FontFamily="Open Sans Semibold" Foreground="White"></TextBlock>
+                <TextBlock Text="Курск, Россия" HorizontalAlignment="Center" FontSize="18" Foreground="#FF505050"></TextBlock>
+                <TextBlock Text="среда, 21 октябрь 2020" HorizontalAlignment="Center" FontSize="18" Foreground="#FF505050" Name="DateNow"></TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3" Background="{StaticResource MainGreen}">
+            <TextBlock Name="TBCount" Text="? дней ? часов и ? минут до старта марафона!" HorizontalAlignment="Center" FontSize="15" Foreground="White"></TextBlock>
+        </Grid>
+        <Frame Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>
+    </Grid>
+</Window>
