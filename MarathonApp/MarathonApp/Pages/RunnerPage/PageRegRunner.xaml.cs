@@ -22,6 +22,7 @@ namespace MarathonApp.Pages.RunnerPage
     /// </summary>
     public partial class PageRegRunner : Page
     {
+        private string _filePath = ""; 
         public PageRegRunner()
         {
             InitializeComponent();
@@ -83,6 +84,17 @@ namespace MarathonApp.Pages.RunnerPage
             {
                 error.AppendLine("Пароли не совпадают");
             }
+            if (DateTime.Now < DPAge.SelectedDate)
+            {
+                error.AppendLine("Дата выбранна некоректно");
+            }
+            else 
+            {
+                DateTime.Now - DPAge.SelectedDate;
+            }
+            Regex template = new Regex(@"^[A-z0-9.-]+@[A-z0-9]+\.[A-z0-9]+$");
+            if (template.IsMatch(TBEmail.Text)) return;
+            error.AppendLine("Почта введена некоректно");
             if (error.Length > 0)
             {
                 MessageBox.Show(error.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -93,22 +105,14 @@ namespace MarathonApp.Pages.RunnerPage
         private void BtnChooseImage_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image formats | *.jpg, *.png";
+            ofd.Filter = "Image formats | *.jpg; *.png";
             if(ofd.ShowDialog() == true)
             {
-                byte[] imageData = null;
-                ImageProfile.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(imageData);
-                //Ima
+                //byte[] imageData = null;
+                //  imageData = 
+                _filePath = ofd.FileName;
+                ImageProfile.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(_filePath);
             }
-        }
-
-
-        private void TBEmail_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Regex template = new Regex(@"^[A-z0-9.-]+@[A-z0-9]+\.[A-z0-9]+$");
-            if (template.IsMatch(TBEmail.Text)) return;
-            MessageBox.Show("Почта введена некоректно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-        
         }
     }
 }
