@@ -90,7 +90,10 @@ namespace MarathonApp.Pages.RunnerPage
             }
             else 
             {
-                DateTime.Now - DPAge.SelectedDate;
+                if ((DateTime.Now - DPAge.SelectedDate).Value.Total < 10)
+                {
+                    error.AppendLine("Бегуну не может быть меньше 10 лет");
+                }
             }
             Regex template = new Regex(@"^[A-z0-9.-]+@[A-z0-9]+\.[A-z0-9]+$");
             if (template.IsMatch(TBEmail.Text)) return;
