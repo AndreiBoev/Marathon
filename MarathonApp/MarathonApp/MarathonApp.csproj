@@ -149,6 +149,9 @@
     <Compile Include="Pages\PageSponsorshipСonfirmation.xaml.cs">
       <DependentUpon>PageSponsorshipСonfirmation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RunnerPage\PageRegEvent.xaml.cs">
+      <DependentUpon>PageRegEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RunnerPage\PageRegRunner.xaml.cs">
       <DependentUpon>PageRegRunner.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RunnerPage\PageRegEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
