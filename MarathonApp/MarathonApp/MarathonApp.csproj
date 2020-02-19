@@ -152,6 +152,9 @@
     <Compile Include="Pages\RunnerPage\PageRegEvent.xaml.cs">
       <DependentUpon>PageRegEvent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RunnerPage\PageRegistrationСonfirmation.xaml.cs">
+      <DependentUpon>PageRegistrationСonfirmation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RunnerPage\PageRegRunner.xaml.cs">
       <DependentUpon>PageRegRunner.xaml</DependentUpon>
     </Compile>
@@ -215,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RunnerPage\PageRegEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RunnerPage\PageRegistrationСonfirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

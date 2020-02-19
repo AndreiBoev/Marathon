@@ -23,6 +23,24 @@ namespace MarathonApp.Pages.RunnerPage
         public PageRegEvent()
         {
             InitializeComponent();
+            CBoxRunner.ItemsSource = AppData.Context.Charities.ToList().Take(100).ToList();
+            CBoxRunner.SelectedIndex = 0;
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void BtnReg_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageRegistrationСonfirmation());
+        }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+                WindowInfo taskWindow = new WindowInfo();
+                taskWindow.Show();           
         }
     }
 }

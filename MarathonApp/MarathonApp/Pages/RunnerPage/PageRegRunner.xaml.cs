@@ -129,7 +129,7 @@ namespace MarathonApp.Pages.RunnerPage
             };
             AppData.Context.Runners.Add(currentRunner);
             AppData.Context.SaveChanges();
-            NavigationService.Navigate(new Page)
+            NavigationService.Navigate(new PageRegEvent());
         }
 
         private void BtnChooseImage_Click(object sender, RoutedEventArgs e)

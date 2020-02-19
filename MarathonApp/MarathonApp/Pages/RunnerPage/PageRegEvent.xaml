@@ -8,7 +8,47 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageRegEvent">
 
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Регистрация на марафон" Style="{StaticResource FontHeader}" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Пожалуйста заполните всю информацию, чтобы зарегистрироваться на Skills Marathon 2016 проводимом в Москве. Russia. С вами свяжутся после регистрации для уточнения оплаты и другой информации." Style="{StaticResource FontBase}" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Вид марафона" Style="{StaticResource FontHeader}" TextAlignment="Center"></TextBlock>
+                <CheckBox Content="42km Полный марафон($145)"></CheckBox>
+                <CheckBox Content="21km Полумарафон ($75)"></CheckBox>
+                <CheckBox Content="5km Малая дистанция ($20)"></CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Детали спонсорства" Style="{StaticResource FontHeader}" TextAlignment="Center"></TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Взнос:" Style="{StaticResource FontBase}" Width="93" TextAlignment="Right"></TextBlock>
+                        <ComboBox Style="{StaticResource ComBoxBase}" Name="CBoxRunner" DisplayMemberPath="CharityName"></ComboBox>
+                        <TextBlock Text="i"  Foreground="Red" Width="15" Height="20" FontSize="14" TextAlignment="Center" MouseDown="TextBlock_MouseDown"></TextBlock>
+                    </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Сумма взноса:" Style="{StaticResource FontBase}"></TextBlock>
+                    <TextBox Style="{StaticResource BoxBase}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="BtnReg" Content="Регистрация" Width="140" Click="BtnReg_Click"></Button>
+                    <Button Name="BtnCancel" Content="Отмена" Width="100" Click="BtnCancel_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <TextBlock Text="Варианты комплектов" Style="{StaticResource FontHeader}" TextAlignment="Center"></TextBlock>
+                <RadioButton Content="Вариант A ($0): Номер бегуна+ RFID браслет."></RadioButton>
+                <RadioButton Content="Вариант B ($20): вариант A + бейсболка + бутылка воды."></RadioButton>
+                <RadioButton Content="Вариант C ($45): Вариант B +футболка + сувенирный буклет."></RadioButton>
+                <TextBlock Text="Варианты комплектов" Style="{StaticResource FontHeader}" TextAlignment="Center"></TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="50" Margin="0 5 0 5" FontSize="50" Name="TBlockAmount" HorizontalAlignment="Center" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                    <TextBlock Text="$" Margin="0 5 0 5" FontSize="50" Foreground="#FFB4B4B4" Style="{StaticResource FontBase}"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
 </Page>
